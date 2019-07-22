@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var bd = require('./BD/bd');
+var md5 = require('md5');
 /* GET home page. */
 router.get('/', function (req, res, next) {
     res.render('registro', { title: 'Bienvenido/a a la pelu del siglo, por favor, registrate' });
@@ -19,11 +20,9 @@ router.post('/',(req,res,next)=>{
 
     var dato = {
         usuario : req.body.usuario,
-        password : req.body.password,
+        password : md5(req.body.password),
         confirmado : 0
     }
-
-
     bd.query("insert into usuarios set ?",dato,(err,row)=>{
         if(err)
             console.log(err);

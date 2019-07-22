@@ -3,6 +3,9 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var session = require('express-session');
+var bodyParser = require('body-parser');
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -11,6 +14,11 @@ var panel = require('./routes/panel');
 var registro = require('./routes/registro');
 
 var app = express();
+
+app.use(session({secret: 'ssshhhhh', resave: true, saveUninitialized: true}));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

@@ -1,6 +1,6 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
+   <img src="/images/0001.png" class="img-fluid" alt="Responsive image" height="60px" width="60px">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -10,35 +10,50 @@
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
                 
-                <a class="nav-link" href="/login/logout">Logout <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/login/logout" style="color: red;">Cerrar Sesión <span class="sr-only">(current)</span></a>
             </li>
  
 
         </ul>
         <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        
         </form>
     </div>
 </nav>
-<h1>Panel de administrador</h1>
+<center><h4>Cartilla de Profesionales</h4></center>
 
-<table>
-
+<table class="table table-sm table-dark" style="text-align: center">
+  <thead>
     <tr>
-        <td>ID</td>
-        <td>Usuario</td>
-        <td>Password</td>
-        <td>Mail confirmado</td>
+      <th scope="col">Profesional</th>
+      <th scope="col">Especialidad</th>
+      <th scope="col">Solicitar Turno</th>
     </tr>
-
-    {{#each dato }}
+  </thead>
+  
+  <tbody>
     <tr>
-
-        <td>{{id_usuario}}</td>
-        <td>{{usuario}}</td>
-        <td>{{password}}</td>
-        <td>{{confirmado}}</td>
+        <td>Carlos Muelita</td>
+        <td>Endodoncia</td>
+        <td><a class="btn btn-primary" href="" role="button">Solicitar</a></td>
     </tr>
-    {{/each}}
+     <tr>
+        <td>Jose Amalgama</td>
+        <td>Odontologia General</td>
+        <td><a class="btn btn-primary" href="" role="button">Solicitar</a></td>
+    </tr>
+    <tr>
+        <td>Pedro Corona</td>
+        <td>Cirugia Maxilofacial</td>
+        <td><a class="btn btn-primary" href="" role="button">Solicitar</a></td>
+    </tr>
+    <tr>
+        <td>Josefina Flemon</td>
+        <td>Periodoncia</td>
+        <td><a class="btn btn-primary" href="" role="button">Solicitar</a></td>
+    </tr>
+  </tbody>
 </table>
+<!--Script!-->
+<script src="javascripts/vendor/jquery.min.js"></script>
+	<script src="javascripts/vendor/bootstrap.min.js"></script>

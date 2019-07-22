@@ -24,7 +24,7 @@ router.post('/inicio', (req,res)=> {
         password: md5(req.body.password)
     }
     // .query(2 o mas parametos) query,(funcion)
-    db.query("select id_usuario from usuarios where usuario='"+datos.usuario+"' and password='"+datos.password+"'",(err,rows)=>{
+    db.query("select id from usuarios where usuario='"+ datos.usuario + "' and password='" + datos.password + "'",(err,rows)=>{
         if(err){
             console.log(err); // DEL LADO DEL SERVIDOR LOS CONSOLE.LOG se visualizan en la terminal     
         } else {
@@ -50,7 +50,7 @@ router.post('/inicio', (req,res)=> {
             // siempre que se le asigne un valor a una variable de sesion
             // deberemos elegir el campo que relaciona a las tablas.
   
-                req.session.usuario = rows[0].id_usuario;
+                req.session.usuario = rows[0].id;
 
                 res.redirect('/panel');
 
@@ -61,6 +61,13 @@ router.post('/inicio', (req,res)=> {
                 res.render('login',{mensaje:"Usuario o contraseña incorrecto"});
             }
         }
+
+        router.get('/logout', function(req, res, next) {
+            req.session.destroy();
+            var pagina='<!doctype html><html><head></head><body>'+
+                     '<br><p>Sesion Cerrada, Gracias!<p><a href="/">Retornar</a></body></html>';
+            res.send(pagina);
+      });
     })
     // QUERY : SELECT * from usuarios where and 
 })
