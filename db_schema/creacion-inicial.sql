@@ -1,5 +1,5 @@
-CREATE DATABASE  IF NOT EXISTS `peluqueria` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `peluqueria`;
+CREATE DATABASE  IF NOT EXISTS `ondontologia` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `ondontologia`;
 -- MySQL dump 10.13  Distrib 8.0.16, for Win64 (x86_64)
 --
 -- Host: localhost    Database: peluqueria
