@@ -7,7 +7,7 @@ var conexion = mysql.createConnection({
     host:'localhost',
     user:'root',
     password:'',
-    database:'peluqueria'
+    database:'odontologia'
     // 'port': 3306
 });
 // conextion.connect();
