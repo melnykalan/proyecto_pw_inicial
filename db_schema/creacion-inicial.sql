@@ -2,7 +2,7 @@ CREATE DATABASE  IF NOT EXISTS `odontologia` /*!40100 DEFAULT CHARACTER SET lati
 USE `odontologia`;
 -- MySQL dump 10.13  Distrib 8.0.16, for Win64 (x86_64)
 --
--- Host: localhost    Database: peluqueria
+-- Host: localhost    Database: odontologia
 -- ------------------------------------------------------
 -- Server version	5.7.24
 
@@ -29,19 +29,11 @@ CREATE TABLE `usuarios` (
   `usuario` varchar(100) NOT NULL,
   `password` varchar(100) DEFAULT NULL,
   `confirmado` tinyint(4) NOT NULL,
+  `admin` tinyint(4) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `usuario_UNIQUE` (`usuario`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `usuarios`
---
-
-LOCK TABLES `usuarios` WRITE;
-/*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-/*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -52,4 +44,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-02 19:14:14
+-- Dump completed on 2019-07-22 19:49:25
