@@ -12,6 +12,7 @@ var usersRouter = require('./routes/users');
 var login = require('./routes/login');
 var panel = require('./routes/panel');
 var registro = require('./routes/registro');
+var turnos = require('./routes/turnos');
 
 var app = express();
 
@@ -35,6 +36,7 @@ app.use('/users', usersRouter);
 app.use('/login', login);
 app.use('/panel', panel);
 app.use('/registro', registro);
+app.use('/turnos', turnos);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
