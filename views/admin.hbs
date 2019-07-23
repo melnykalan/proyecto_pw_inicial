@@ -1,0 +1,26 @@
+{{title}}
+
+<div class="container">
+    <div class="row justify-content-center" style="padding-top: 200px;">
+        <div class="col-6">
+            <form action="/admin/guardarprofesional" method="post">
+                <input type="text" name="nombre" class="form-control" placeholder="nombre" required>
+                <input type="text" name="apellido" placeholder="apellido" class="form-control mt-3" required>
+                <input type="number" name="dni" placeholder="dni" class="form-control mt-3" required>
+                <input type="text" name="direccion" placeholder="direccion" class="form-control mt-3" required>
+                <input type="number" name="telefono" placeholder="telefono" class="form-control mt-3" required>
+                <div class="form-group">
+                    <label for="sel1">Seleccionar especialidad:</label>
+                    <select class="form-control" name="idespecialidad">
+                        {{#each especialidades}}
+                        <option value="{{this.id}}" {{#selected}}selected="selected" {{/selected}}>{{this.name}}
+                        </option>
+                        {{/each}}
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3 btn-outline btn-block">Agregar Profesional</button>
+                {{mensaje}}
+            </form>
+        </div>
+    </div>
+</div>

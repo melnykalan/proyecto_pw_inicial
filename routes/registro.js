@@ -19,9 +19,10 @@ router.post('/',(req,res,next)=>{
     var password = req.body.password;// 
 
     var dato = {
-        usuario : req.body.usuario,
-        password : md5(req.body.password),
-        confirmado : 0
+        usuario : usuario,
+        password : md5(password),
+        confirmado : 0,
+        admin: 0
     }
     bd.query("insert into usuarios set ?",dato,(err,row)=>{
         if(err)

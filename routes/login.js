@@ -24,7 +24,7 @@ router.post('/inicio', (req,res)=> {
         password: md5(req.body.password)
     }
     // .query(2 o mas parametos) query,(funcion)
-    db.query("select id from usuarios where usuario='"+ datos.usuario + "' and password='" + datos.password + "'",(err,rows)=>{
+    db.query("select id, admin from usuarios where usuario='"+ datos.usuario + "' and password='" + datos.password + "'",(err,rows)=>{
         if(err){
             console.log(err); // DEL LADO DEL SERVIDOR LOS CONSOLE.LOG se visualizan en la terminal     
         } else {
@@ -51,6 +51,7 @@ router.post('/inicio', (req,res)=> {
             // deberemos elegir el campo que relaciona a las tablas.
   
                 req.session.usuario = rows[0].id;
+                req.session.admin = rows[0].admin;
 
                 res.redirect('/panel');
 
