@@ -10,7 +10,7 @@ router.get('/', function (req, res, next) {
     }
 });
 
-function getEspecialidades(res) {
+function getEspecialidades(res, mensaje) {
     db.query("select idespecialidad, nombre from especialidades", (err, row) => {
         if (err) {
             console.log(err);
@@ -20,7 +20,7 @@ function getEspecialidades(res) {
             row.forEach(element => {
                 especialidades.push({ id: element.idespecialidad, name: element.nombre });
             });
-            res.render('admin', { title: "Consola de admin", especialidades: especialidades });
+            res.render('admin', { title: "Consola de admin", especialidades: especialidades, mensaje: mensaje });
         }
     })
 }
@@ -42,19 +42,19 @@ router.post('/guardarprofesional', (req, res) => {
             idespecialidad: idespecialidad
         }
         db.query("insert into profesionales set ?", dato, (err, row) => {
-            if (err){
+            if (err) {
                 console.log(err);
-                res.render('admin', { mensaje: 'Error al agregar Profesional' });
+                getEspecialidades(res, 'Error al agregar Profesional');
             }
             else
-                res.render('admin', { mensaje: 'Profesional agregado exitosamente' });
-        })
+                getEspecialidades(res, 'Profesional agregado exitosamente');
+        });
     }
     else {
         res.render('admin', { mensaje: "Usted no tiene permisos para dar de alta un profesional" });
         res.redirect('/panel');
     }
-})
+});
 
 module.exports = router;
 
